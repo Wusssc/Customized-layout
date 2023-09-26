@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+/*			<style media="screen">這樣做不會進到print*/
+/*			整體性的建議拉出來外面，媒體查詢裡放的是不同的部分*/
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: 微軟正黑體;
+			}
+
+			body{
+				background-color: #123;
+				color: white;
+			}
+
+/*			display:block是none的預設*/
+			.box{
+				display: none;
+			}
+
+/*			在特定的時間點做一些特定的事情*/
+/*			從screen螢幕過來，當螢幕在最小1200內的範圍就正常檢視*/
+/*			針對大尺寸畫面區段-lg*/
+			@media screen and (min-width: 1200px){
+				.wrap{
+					width: 1200px;
+	/*				height: 1260px;*/
+	/*				height: 50px; */
+	/*				爸爸不在小孩後面，他被放在上面*/
+	/*				background-color: #123;*/
+					margin: auto;
+	/*				outline: 1px solid red;*/
+				}
+				.lg{
+					display: block;
+					width: 350px;
+					height: 400px;
+					border: 3px solid white;
+					margin: 10px 25px;
+					float: left;
+					transition:.5s ;
+				}
+	/*			清除浮動*/
+				.clearfix{
+					width: 1150px;
+					height: 100px;
+					margin: auto;
+					/*讓div置中*/
+					background-color: tomato;
+					clear: both;
+					/*clear清除浮動 both兩邊都不要有人浮動*/
+					outline: 2px solid red;
+				}
+
+				/*>是指下一層 空格是以下所有*/
+				.clearfix h1{
+					text-align: center;
+					color: black;
+					line-height:100px;
+				/*line-height行高*/
+				}
+
+				.box .imgbox{
+					width: 100%;
+					height: 196px;
+					overflow: hidden;
+					/*			overflow遮蔽超出的地方*/
+				}
+
+				.box img{
+					width: 100%;
+					filter: grayscale(100%) brightness(.6);
+					/*			filter是濾鏡*/
+					/*			brightness是亮度*/
+					transition: .5s;
+					transform: scale(1.2);
+				}
+				.box h3{
+					font-size: 30px;
+					text-align: center;
+					padding: 10px;
+					text-transform: uppercase;
+				}
+				.box p{
+					padding: 10px;
+					text-align: justify;
+				}
+				.box a{
+					width: 150px;
+					/*			a標籤是一個inline*/
+					height: 40px;
+					background-color: tomato;
+					color: #fff;
+					display: block;
+					/*			設block讓他的區塊跑出來*/
+					text-decoration: none;
+					text-align: center;
+					line-height: 40px;
+					margin: auto;
+					/*			左右力量一樣，拉到中間---水平*/
+					border-radius: 20px;
+					/*			員角*/
+					/*			padding: 10px 30px; */
+					/*			內距*/
+					transition:.5s ;
+				}
+
+				.box:hover{
+					cursor: pointer;
+					color: #123;
+					background-color: white;
+					border-color: tomato;
+					box-shadow: 0px 0px 0px 2px yellow,
+								0px 0px 10px red,
+								0px 0px 20px white ;
+				}
+				.box:hover a{
+					background-color:#123;
+				}
+				.box a:hover {
+					color: yellow;
+					background-color:red;
+				}
+
+				.box:hover img{
+					filter: grayscale(0) brightness(1);
+	/*				width: 120%;*/
+					transform: scale(1);
+	/*				transform是放大 scale比例*/
+	/*				負數會圖片相反，0是直接不見，正數放大*/
+				}
+			}
+/*			針對中尺寸畫面區段，不和上面的大小碰撞到*/
+			@media screen and (max-width: 1199px) and (min-width:751px){
+				.wrap{
+					width: 90%;
+	/*				height: 1260px;*/
+	/*				height: 50px; */
+	/*				爸爸不在小孩後面，他被放在上面*/
+/*					background-color: #f23;*/
+					margin: auto;
+	/*				outline: 1px solid red;*/
+				}
+				.md{
+					display: block;
+					width: 100%;
+					height: 200px;
+					border: 3px solid white;
+					margin: 10px 0;
+/*					float: left;*/
+					transition:.5s ;
+				}
+
+
+/*				清除浮動*/
+				.clearfix{
+					width: 100%;
+					height: 100px;
+					margin: auto;
+					/*讓div置中*/
+					background-color: tomato;
+					clear: both;
+					/*clear清除浮動 both兩邊都不要有人浮動*/
+					outline: 2px solid red;
+				}
+
+				/*>是指下一層 空格是以下所有*/
+				.clearfix h1{
+					text-align: center;
+					color: black;
+					line-height:100px;
+				/*line-height行高*/
+				}
+
+				.box .imgbox{
+					width: 350px;
+					height: 100%;
+					overflow: hidden;
+					/*			overflow遮蔽超出的地方*/
+					float: left;
+				}
+
+				.box img{
+					width: 100%;
+					filter: grayscale(100%) brightness(.6);
+					/*			filter是濾鏡*/
+					/*			brightness是亮度*/
+					transition: .5s;
+					transform: scale(1.2);
+				}
+				.box h3{
+					font-size: 30px;
+					text-align: center;
+					padding: 10px;
+					text-transform: uppercase;
+				}
+				.box p{
+					padding: 10px;
+					text-align: justify;
+				}
+				.box a{
+					width: 150px;
+					/*			a標籤是一個inline*/
+					height: 40px;
+					background-color: tomato;
+					color: #fff;
+					display: block;
+					/*			設block讓他的區塊跑出來*/
+					text-decoration: none;
+					text-align: center;
+					line-height: 40px;
+					margin: auto;
+					/*			左右力量一樣，拉到中間---水平*/
+					border-radius: 20px;
+					/*			員角*/
+					/*			padding: 10px 30px; */
+					/*			內距*/
+					transition:.5s ;
+				}
+
+				.box:hover{
+					cursor: pointer;
+					color: #123;
+					background-color: white;
+					border-color: tomato;
+					box-shadow: 0px 0px 0px 2px yellow,
+								0px 0px 10px red,
+								0px 0px 20px white ;
+				}
+				.box:hover a{
+					background-color:#123;
+				}
+				.box a:hover {
+					color: yellow;
+					background-color:red;
+				}
+
+				.box:hover img{
+					filter: grayscale(0) brightness(1);
+	/*				width: 120%;*/
+					transform: scale(1);
+	/*				transform是放大 scale比例*/
+	/*				負數會圖片相反，0是直接不見，正數放大*/
+				}
+				.textBox{
+/*					計算寬度減號左右要有空格width: calc();*/
+					width: calc(100% - 350px);
+					float: left;
+				}
+			}
+/*			針對小尺寸畫面區段，不和上面的大小碰撞到*/
+			@media screen and (max-width: 750px){
+				.wrap{
+					width: 90%;
+	/*				height: 1260px;*/
+	/*				height: 50px; */
+	/*				爸爸不在小孩後面，他被放在上面*/
+/*					background-color: #f23;*/
+					margin: auto;
+	/*				outline: 1px solid red;*/
+				}
+				.sm{
+					display: block;
+					width: 100%;
+					height: auto;
+					border: 3px solid white;
+					margin: 10px 0;
+/*					float: left;*/
+					transition:.5s ;
+				}
+
+
+/*				清除浮動*/
+				.clearfix{
+					width: 100%;
+					height: 100px;
+					margin: auto;
+					/*讓div置中*/
+					background-color: tomato;
+/*					clear: both;*/
+					/*clear清除浮動 both兩邊都不要有人浮動*/
+					outline: 2px solid red;
+				}
+
+				/*>是指下一層 空格是以下所有*/
+				.clearfix h1{
+					text-align: center;
+					color: black;
+					line-height:100px;
+				/*line-height行高*/
+				}
+
+				.box .imgbox{
+					width: 100%;
+					height: 200px;
+					overflow: hidden;
+					/*			overflow遮蔽超出的地方*/
+/*					float: left;*/
+				}
+
+				.box img{
+					width: 100%;
+					filter: grayscale(100%) brightness(.6);
+					/*			filter是濾鏡*/
+					/*			brightness是亮度*/
+					transition: .5s;
+					transform: scale(1.2);
+				}
+				.box h3{
+					font-size: 30px;
+					text-align: center;
+					padding: 10px;
+					text-transform: uppercase;
+				}
+				.box p{
+					padding: 10px;
+					text-align: justify;
+				}
+				.box a{
+					width: 150px;
+					/*			a標籤是一個inline*/
+					height: 40px;
+					background-color: tomato;
+					color: #fff;
+					display: block;
+					/*			設block讓他的區塊跑出來*/
+					text-decoration: none;
+					text-align: center;
+					line-height: 40px;
+					margin: auto;
+					/*			左右力量一樣，拉到中間---水平*/
+					border-radius: 20px;
+					/*			員角*/
+					/*			padding: 10px 30px; */
+					/*			內距*/
+					transition:.5s ;
+				}
+
+				.box:hover{
+					cursor: pointer;
+					color: #123;
+					background-color: white;
+					border-color: tomato;
+					box-shadow: 0px 0px 0px 2px yellow,
+								0px 0px 10px red,
+								0px 0px 20px white ;
+				}
+				.box:hover a{
+					background-color:#123;
+				}
+				.box a:hover {
+					color: yellow;
+					background-color:red;
+				}
+
+				.box:hover img{
+					filter: grayscale(0) brightness(1);
+	/*				width: 120%;*/
+					transform: scale(1);
+	/*				transform是放大 scale比例*/
+	/*				負數會圖片相反，0是直接不見，正數放大*/
+				}
+				.textBox{
+/*					計算寬度減號左右要有空格width: calc();*/
+					width: 100%;
+/*					float: left;*/
+					padding-bottom: 15px;
+				}
+/*				adv關廣告(title02和title03)*/
+				.adv{
+					display: none;
+				}
+			}
+/*			針對印表機*/
+			@media print {
+				.imgbox,.clearfix{
+/*					display: none不要出現*/
+/*					visibility: none 不要出現但會保留位置;*/
+					display: none;
+				}
+				body{
+					background-color: initial;
+					color: black;
+				}
+				.box{
+					display: block;
+					border-block: 3px solid black;
+					margin-bottom: 20px;
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		
+		<!-- 快速鍵：(.box>img[src="https://picsum.photos/350/200?random=$"]+h3{title$$}+(p>lorem15)+a[href=#]{read more})*9 -->
+		<div class="wrap">
+			<div class="box lg md">
+				<div class="imgbox">
+					<img src="https://picsum.photos/350/200?random=1" alt="">
+				</div>
+				<div class="textBox">
+					<h3>title01</h3>
+					<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Consequuntur, iure dolor, iusto aut dolorum earum!</p>
+					<!-- p標籤是一個block他可以確保旁邊沒有站人 -->
+				<a href="#">read more</a>
+				</div>
+			</div>
+			<div class="box lg md adv">
+				<div class="imgbox">
+					<img src="https://picsum.photos/350/200?random=2" alt="">
+				</div>
+				<div class="textBox">
+					<h3>title02</h3>
+					<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Consequuntur, iure dolor, iusto aut dolorum earum!</p>
+					<a href="#">read more</a>
+				</div>
+			</div>
+			<div class="box lg md adv">
+				<div class="imgbox">
+					<img src="https://picsum.photos/350/200?random=3" alt="">
+				</div>
+				<div class="textBox">
+						<h3>title03</h3>
+						<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Consequuntur, iure dolor, iusto aut dolorum earum!</p>
+						<a href="#">read more</a>
+				</div>
+			</div>
+			<div class="box lg md">
+				<div class="imgbox">
+					<img src="https://picsum.photos/350/200?random=4" alt="">
+				</div>
+				<div class="textBox">
+						<h3>title04</h3>
+						<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Consequuntur, iure dolor, iusto aut dolorum earum!</p>
+						<a href="#">read more</a>
+				</div>
+			</div>
+			<div class="box lg sm md">
+				<div class="imgbox">
+					<img src="https://picsum.photos/350/200?random=5" alt="">
+				</div>
+				<div class="textBox">
+						<h3>title05</h3>
+						<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Consequuntur, iure dolor, iusto aut dolorum earum!</p>
+						<a href="#">read more</a>
+				</div>
+			</div>
+			<div class="box lg sm">
+				<div class="imgbox">
+					<img src="https://picsum.photos/350/200?random=6" alt="">
+				</div>
+				<div class="textBox">
+						<h3>title06</h3>
+						<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Consequuntur, iure dolor, iusto aut dolorum earum!</p>
+						<a href="#">read more</a>
+				</div>
+			</div>
+			<div class="box lg sm">
+				<div class="imgbox">
+					<img src="https://picsum.photos/350/200?random=7" alt="">
+				</div>
+				<div class="textBox">
+						<h3>title07</h3>
+						<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Consequuntur, iure dolor, iusto aut dolorum earum!</p>
+						<a href="#">read more</a>
+				</div>
+			</div>
+			<div class="box lg sm">
+				<div class="imgbox">
+					<img src="https://picsum.photos/350/200?random=8" alt="">
+				</div>
+				<div class="textBox">
+						<h3>title08</h3>
+						<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Consequuntur, iure dolor, iusto aut dolorum earum!</p>
+						<a href="#">read more</a>
+				</div>
+			</div>
+			<div class="box lg sm">
+				<div class="imgbox">
+					<img src="https://picsum.photos/350/200?random=9" alt="">
+				</div>
+				<div class="textBox">
+						<h3>title09</h3>
+						<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Consequuntur, iure dolor, iusto aut dolorum earum!</p>
+						<a href="#">read more</a>
+				</div>
+			</div>
+			<div class="clearfix"><h1>11010145</h1></div>
+		</div>
+	</body>
+</html>
